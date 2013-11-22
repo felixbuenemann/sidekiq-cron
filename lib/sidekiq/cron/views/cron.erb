@@ -19,7 +19,7 @@
       <% @cron_jobs.sort{|a,b| a.sort_name <=> b.sort_name }.each_with_index do |job, index| %>
         <% style = "#{job.status == 'disabled' ? "background: #ecc": ""}" %>
         <tr>
-          <td style="<%= t style %>"><%= job.status %></td>
+          <td style="<%= style %>"><%= t job.status %></td>
           <td style="<%= style %>"><%= job.name %></td>
           <td style="<%= style %>"><b><%= job.cron.gsub(" ", "&nbsp;") %></b></td>
           <td style="<%= style %>"><%= relative_time(job.last_run_time) %></td>
